@@ -10,8 +10,8 @@
 #SBATCH --time=1-00:00:00
 #SBATCH --mail-user=sbartle7@utk.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH -e errors/import-data.err-%N
-#SBATCH -o errors/import-data.out-%N
+#SBATCH -e /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.err-%N
+#SBATCH -o /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.out-%N
 
 # import data
 module load gcc/10.2.0

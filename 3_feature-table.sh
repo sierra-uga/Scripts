@@ -14,9 +14,9 @@
 # for visualization of the rep-seqs and asv table
 # load/variables
 module load QIIME2/2023.7
-input=/home/sb29930/qiime_artemis/data-clean
-metad=/home/sb29930/qiime_artemis/analysis/artemis-eDNA-metadata-final.tsv
-output=/home/sb29930/qiime_artemis/data-clean
+input=/nfs/home/sbartle7/CERES/SynCom1/data-clean
+metad=/nfs/home/sbartle7/CERES/SynCom1/anaylsis/SynCom1-metadata.tsv
+output=/nfs/home/sbartle7/CERES/SynCom1/data-clean
 
 qiime feature-table summarize \
   --i-table $input/table.qza \
