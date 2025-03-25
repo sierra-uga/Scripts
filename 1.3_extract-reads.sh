@@ -10,13 +10,15 @@
 #SBATCH --time=1-00:00:00
 #SBATCH --mail-user=sbartle7@utk.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH -e /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.err-%N
-#SBATCH -o /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.out-%N
+#SBATCH -e /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/extract-reads.err-%N
+#SBATCH -o /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/extract-reads.out-%N
 
 # load/variables
-module load QIIME2/2023.7
+module load gcc/10.2.0
+module load anaconda3/2021.05
+module load qiime2/2022.8
 SILVA_taxonomy_seq=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/SILVA/qiime_Silva_seq.qza
-reference_sequences=/home/sb29930/art001/training-feature-classifiers/extract-ref-seqs.qza
+reference_sequences=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/training-feature-classifiers/extract-ref-seqs.qza
 
 qiime feature-classifier extract-reads \
   --i-sequences $SILVA_taxonomy_seq \
@@ -25,3 +27,4 @@ qiime feature-classifier extract-reads \
   --p-min-length 100 \ 
   --p-max-length 400 \ 
   --o-reads $reference_sequences
+
