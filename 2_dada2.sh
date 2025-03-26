@@ -1,17 +1,17 @@
 #!/bin/sh
 #SBATCH --job-name=“dada2-analysis”
-#SBATCH --partition=campus-bigmem
+#SBATCH --partition=long-bigmem
 #SBATCH --nodes=1
-#SBATCH --qos=campus-bigmem
+#SBATCH --qos=long-bigmem
 #SBATCH -A ISAAC-UTK0268
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem-per-cpu=8G
-#SBATCH --time=1-00:00:00
+#SBATCH --cpus-per-task=20
+#SBATCH --mem-per-cpu=30G
+#SBATCH --time=6-00:00:00
 #SBATCH --mail-user=sbartle7@utk.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH -e /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.err-%N
-#SBATCH -o /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/import-data.out-%N
+#SBATCH -e /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/dada2.err-%N
+#SBATCH -o /lustre/isaac24/scratch/sbartle7/CERES/SynCom1/scripts/errors/dada2.out-%N
 
 # load/variables
 module load gcc/10.2.0 #prereq for qiime
@@ -24,7 +24,7 @@ output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 qiime dada2 denoise-paired \
         --i-demultiplexed-seqs $input/syncom1-demultiplexed-samples.qza \
         --p-n-threads 0 \
-        --p-trunc-len-f 220 \
+        --p-trunc-len-f 240 \
         --p-trunc-len-r 200 \
         --p-chimera-method pooled \
         --verbose \
