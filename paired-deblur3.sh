@@ -21,8 +21,8 @@ output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 
 qiime deblur denoise-16S \
   --i-demultiplexed-seqs $input/demux-joined-filtered.qza \
-  --p-trim-length 250 \
+  --p-trim-length 300 \
   --p-sample-stats \
-  --o-representative-sequences $output/rep-seqs.qza \
-  --o-table $output/table.qza \
-  --o-stats $output/deblur-stats.qza
+  --o-representative-sequences $output/notrim-rep-seqs.qza \
+  --o-table $output/notrim-table.qza \
+  --o-stats $output/notrim-deblur-stats.qza

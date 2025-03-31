@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --job-name="metadata-tabulate”
+#SBATCH --job-name=“metadata-tabulate”
 #SBATCH --partition=campus-bigmem
 #SBATCH --nodes=1
 #SBATCH --qos=campus-bigmem
@@ -16,10 +16,10 @@
 module load gcc/10.2.0 #prereq for qiime
 module load anaconda3/2021.05 #prereq for qiime
 module load qiime2/2022.8 
-trained_classifier=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/training-feature-classifiers/trained-classifier.qza
+taxonomy_assignment=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/notrim-Syncom1-taxonomy-silva.qza  # an output
 output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/analysis
 
 qiime metadata tabulate \
   --m-input-file $taxonomy_assignment \
-  --o-visualization $output/taxonomy.qzv  # import into qiime2 view, download as tsv file
+  --o-visualization $output/notrim-taxonomy.qzv  # import into qiime2 view, download as tsv file
   

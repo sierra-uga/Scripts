@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --job-name="sklern”
+#SBATCH --job-name=“sklern”
 #SBATCH --partition=campus-bigmem
 #SBATCH --nodes=1
 #SBATCH --qos=campus-bigmem
@@ -19,11 +19,11 @@ module load anaconda3/2021.05 #prereq for qiime
 module load qiime2/2022.8 
 trained_classifier=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/training-feature-classifiers/trained-classifier.qza
 output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/analysis
-taxonomy_assignment=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/Syncom1-taxonomy-silva.qza  # an output
-unknown_reads=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/rep-seqs-deblur.qza 
+taxonomy_assignment=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/notrim-Syncom1-taxonomy-silva.qza  # an output
+unknown_reads=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/notrim-rep-seqs.qza 
 
 qiime feature-classifier classify-sklearn \
   --i-reads $unknown_reads \
   --i-classifier $trained_classifier \
-  --p-confidence 0.7 \
+  --p-confidence 0.8 \
   --o-classification $taxonomy_assignment

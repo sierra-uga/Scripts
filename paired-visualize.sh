@@ -22,3 +22,7 @@ output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 qiime feature-table summarize \
   --i-table $input/table.qza \
   --o-visualization $output/table.qzv
+  
+qiime feature-table tabulate-seqs \
+  --i-data $input/rep-seqs.qza \
+  --o-visualization $output/rep-seqs.qzv
