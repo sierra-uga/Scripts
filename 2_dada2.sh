@@ -22,12 +22,12 @@ output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 
 # basic -- trims to 120 basepairs
 qiime dada2 denoise-paired \
-        --i-demultiplexed-seqs $input/syncom1-demultiplexed-samples.qza \
+        --i-demultiplexed-seqs $input/trimmed-syncom1-demultiplexed-samples.qza \
         --p-n-threads 0 \
-        --p-trunc-len-f 240 \
-        --p-trunc-len-r 200 \
+        --p-trunc-len-f 290 \
+        --p-trunc-len-r 260 \
         --p-chimera-method pooled \
         --verbose \
-        --o-table $output/table-dada2.qza \
-        --o-representative-sequences $output/rep-seqs.qza \
-        --o-denoising-stats $output/stats-dada2.qza
+        --o-table $output/final-table-dada2.qza \
+        --o-representative-sequences $output/final-rep-seqs.qza \
+        --o-denoising-stats $output/final-stats-dada2.qza
