@@ -17,12 +17,12 @@
 module load gcc/10.2.0
 module load anaconda3/2021.05
 module load qiime2/2022.8
-input=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/test-syncom1-demultiplexed-samples.qza
+input=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/trimmed-syncom1-demultiplexed-samples.qza
 output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 
 # visualize qza to see quality, and to know where to trim with dada2
 qiime demux summarize \
 --i-data $input \
---o-visualization $output/test-syncom1-demux.qzv
+--o-visualization $output/trimmed-syncom1-demux.qzv
 
 # visualize using --> www.view.qiime2.org 

@@ -30,3 +30,4 @@ qiime feature-table summarize \
 qiime feature-table tabulate-seqs \
   --i-data $input/final-rep-seqs-dada2.qza \
   --o-visualization $output/rep-seqs-dada2-visual.qzv
+

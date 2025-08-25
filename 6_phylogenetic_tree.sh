@@ -17,13 +17,13 @@
 module load gcc/10.2.0
 module load anaconda3/2021.05
 module load qiime2/2022.8
-input=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/rep-seqs-dada2.qza
+input=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean/final-rep-seqs.qza
 output=/lustre/isaac24/scratch/sbartle7/CERES/SynCom1/data-clean
 
 qiime phylogeny align-to-tree-mafft-fasttree \
   --i-sequences $input \
-  --o-alignment $output/aligned-rep-seqs.qza \
-  --o-masked-alignment $output/masked-aligned-rep-seqs.qza \
-  --o-tree $output/unrooted-tree.qza \
-  --o-rooted-tree $output/rooted-tree.qza 
+  --o-alignment $output/final-rep-seqs.qza \
+  --o-masked-alignment $output/final-masked-aligned-rep-seqs.qza \
+  --o-tree $output/final-unrooted-tree.qza \
+  --o-rooted-tree $output/final-rooted-tree.qza 
   
